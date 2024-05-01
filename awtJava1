@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-public class SumDemo extends Frame
+public class SumDemo extends Frame implements ActionListener
 {
 	TextField txtnum1, txtnum2;
 	Label lblmsg1, lblmsg2, lblResult;
@@ -15,11 +15,13 @@ public class SumDemo extends Frame
 		txtnum1 = new TextField(10);
 		txtnum2 = new TextField(10);
 		btnSum = new Button("Sum");
+		lblResult = new Label("                            ");
 		add(lblmsg1);
 		add(txtnum1);
 		add(lblmsg2);
 		add(txtnum2);
 		add(btnSum);
+		add(lblResult);
 		addWindowListener(new WindowAdapter()
 		{
 			public void windowClosing(WindowEvent e)
@@ -27,9 +29,18 @@ public class SumDemo extends Frame
 				System.exit(0);
 			}
 		});
+		btnSum.addActionListener(this);
 		setVisible(true);
 	}
 
+	public void actionPerformed(ActionEvent e)
+	{
+	         int a,b;
+		 a = Integer.parseInt(txtnum1.getText());
+		 b = Integer.parseInt(txtnum2.getText());
+		 lblResult.setText("Sum = " + (a+b));
+	}
+	
 	public static void main(String args[])
 	{
 		SumDemo ob1 = new SumDemo();
