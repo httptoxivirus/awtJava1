@@ -1,0 +1,37 @@
+import java.awt.*;
+import java.awt.event.*;
+public class SumDemo extends Frame
+{
+	TextField txtnum1, txtnum2;
+	Label lblmsg1, lblmsg2, lblResult;
+	Button btnSum;
+	SumDemo()
+	{
+		setSize(500,500);
+		FlowLayout fl = new FlowLayout();
+		setLayout(fl);
+		lblmsg1 = new Label("Enter number 1 : ");
+		lblmsg2 = new Label("Enter number 2 : ");
+		txtnum1 = new TextField(10);
+		txtnum2 = new TextField(10);
+		btnSum = new Button("Sum");
+		add(lblmsg1);
+		add(txtnum1);
+		add(lblmsg2);
+		add(txtnum2);
+		add(btnSum);
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		});
+		setVisible(true);
+	}
+
+	public static void main(String args[])
+	{
+		SumDemo ob1 = new SumDemo();
+	}
+}
